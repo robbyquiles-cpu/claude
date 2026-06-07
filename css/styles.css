@@ -731,3 +731,159 @@ footer {
   .shop-card-top { height: 110px; }
   .shop-icon { font-size: 2.1rem; }
 }
+
+/* ═══════════════════════════════════════════════
+   Animations & Transitions
+   ═══════════════════════════════════════════════ */
+
+body { overflow-x: hidden; }
+
+/* ── Theme stripe: thin fixed bar that shifts color per fish category ── */
+#theme-stripe {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), #f0c535);
+  z-index: 9999;
+  transition: background 0.45s ease, box-shadow 0.45s ease;
+}
+
+/* ── Hero: animated shifting gradient ── */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.hero {
+  background-image: linear-gradient(-45deg, #071e38, #0d3558, #1a7a8a, #0a4050, #0a2342);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+.hero-inner { position: relative; z-index: 1; }
+
+/* ── Floating bubbles ── */
+.hero-bubbles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-bubble {
+  position: absolute;
+  bottom: -80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.13);
+  animation: bubbleRise linear infinite;
+}
+@keyframes bubbleRise {
+  0%   { transform: translateY(0) scale(0.8);   opacity: 0; }
+  8%   { opacity: 0.75; }
+  88%  { opacity: 0.3; }
+  100% { transform: translateY(-110vh) scale(1.1); opacity: 0; }
+}
+
+/* ── Button ripple ── */
+.btn { position: relative; overflow: hidden; }
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: rippleAnim 0.65s linear;
+  background: rgba(255,255,255,.28);
+  pointer-events: none;
+}
+@keyframes rippleAnim {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+  will-change: transform, opacity;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.86);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(.34,1.56,.64,1);
+  will-change: transform, opacity;
+}
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+/* ── Shop section background tint transition ── */
+#shop-section { transition: background-color 0.5s ease; }
+
+/* ── Enhanced shop card hover (overrides earlier rule) ── */
+.shop-card {
+  transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.35s ease, border-color 0.3s ease;
+  will-change: transform;
+}
+.shop-card:hover { transform: translateY(-10px) scale(1.03); border-color: transparent; }
+
+/* ── Feature card smooth transitions ── */
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+/* ── Section label color transition ── */
+.section-label { transition: color 0.4s ease; }
+
+/* ── Nav link transition ── */
+.nav-links a { transition: color .22s ease, background .22s ease; }
+
+/* ── Page hero entrance animations ── */
+@keyframes pageHeroIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-hero h1 { animation: pageHeroIn 0.7s ease both; }
+.page-hero p  { animation: pageHeroIn 0.7s ease 0.15s both; }
+
+/* ── Home hero text entrance ── */
+@keyframes heroSlideIn {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.hero-badge   { animation: heroSlideIn 0.6s ease 0.1s  both; }
+.hero h1      { animation: heroSlideIn 0.7s ease 0.22s both; }
+.hero p       { animation: heroSlideIn 0.7s ease 0.38s both; }
+.hero-actions { animation: heroSlideIn 0.7s ease 0.52s both; }
+
+/* ── Stats bar staggered entrance ── */
+@keyframes statUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.stats-grid > div:nth-child(1) { animation: statUp 0.6s ease 0.05s both; }
+.stats-grid > div:nth-child(2) { animation: statUp 0.6s ease 0.18s both; }
+.stats-grid > div:nth-child(3) { animation: statUp 0.6s ease 0.31s both; }
+.stats-grid > div:nth-child(4) { animation: statUp 0.6s ease 0.44s both; }
+
+/* ── CTA primary button pulse ── */
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,160,23,0); }
+  50%       { box-shadow: 0 0 0 9px rgba(212,160,23,.18); }
+}
+.cta-banner .btn-primary { animation: ctaPulse 2.8s ease infinite; }
+
+/* ── Waitlist badge gentle pulse ── */
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
+.waitlist-badge { animation: badgePulse 3s ease infinite; }
+
+/* ── Fish graphic bounce (home hero) ── */
+.fish-graphic {
+  animation: float 4s ease-in-out infinite, scaleIn 0.7s ease 0.4s both;
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
