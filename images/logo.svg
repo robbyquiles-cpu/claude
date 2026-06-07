@@ -1,43 +1,134 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 64" width="300" height="64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 68" width="300" height="68">
   <defs>
-    <radialGradient id="fishGrad" cx="38%" cy="32%" r="65%">
-      <stop offset="0%" stop-color="#f9c74f"/>
-      <stop offset="55%" stop-color="#e8960c"/>
-      <stop offset="100%" stop-color="#b86d00"/>
+    <!-- Body radial gradient: bright gold center → deep amber edge -->
+    <radialGradient id="bodyGrad" cx="36%" cy="30%" r="65%">
+      <stop offset="0%"   stop-color="#fde68a"/>
+      <stop offset="28%"  stop-color="#f59e0b"/>
+      <stop offset="62%"  stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#92400e"/>
     </radialGradient>
-    <filter id="softglow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+
+    <!-- Fin gradients -->
+    <linearGradient id="dorsalGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%"   stop-color="#d97706" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="caudalGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#b45309" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#fcd34d" stop-opacity="0.25"/>
+    </linearGradient>
+
+    <!-- Clip to body ellipse for stripes + iridescent lines -->
+    <clipPath id="bodyClip">
+      <ellipse cx="31" cy="34" rx="19" ry="23"/>
+    </clipPath>
+
+    <!-- Soft glow -->
+    <filter id="glow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
 
-  <!-- Fish circle background -->
-  <circle cx="32" cy="32" r="30" fill="url(#fishGrad)" filter="url(#softglow)"/>
+  <!-- Ambient halo -->
+  <ellipse cx="32" cy="34" rx="35" ry="34" fill="#f59e0b" opacity="0.12" filter="url(#glow)"/>
 
-  <!-- Discus fish body (round disc shape) -->
-  <ellipse cx="30" cy="32" rx="16" ry="20" fill="none" stroke="white" stroke-width="2.2" opacity="0.95"/>
+  <!-- ═══ FINS (drawn before body so body overlaps their base) ═══ -->
 
-  <!-- Dorsal fin (top) -->
-  <path d="M22 14 C26 6 36 6 40 14" fill="rgba(255,255,255,0.25)" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+  <!-- DORSAL FIN -->
+  <path d="M 16,21 C 18,9 24,3 31,3 C 38,3 44,9 46,21"
+        fill="url(#dorsalGrad)" stroke="#b45309" stroke-width="0.75" opacity="0.95"/>
+  <line x1="20" y1="20" x2="18" y2="7"  stroke="#92400e" stroke-width="0.6" opacity="0.5"/>
+  <line x1="24" y1="17" x2="23" y2="4"  stroke="#92400e" stroke-width="0.6" opacity="0.5"/>
+  <line x1="28" y1="15" x2="28" y2="3"  stroke="#92400e" stroke-width="0.6" opacity="0.5"/>
+  <line x1="33" y1="14" x2="33" y2="3"  stroke="#92400e" stroke-width="0.6" opacity="0.5"/>
+  <line x1="38" y1="15" x2="39" y2="4"  stroke="#92400e" stroke-width="0.6" opacity="0.5"/>
+  <line x1="43" y1="18" x2="44" y2="8"  stroke="#92400e" stroke-width="0.6" opacity="0.5"/>
 
-  <!-- Ventral fin (bottom) -->
-  <path d="M22 50 C26 58 36 58 40 50" fill="rgba(255,255,255,0.25)" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+  <!-- ANAL FIN -->
+  <path d="M 16,48 C 18,60 24,65 31,65 C 38,65 44,60 46,48"
+        fill="url(#dorsalGrad)" stroke="#b45309" stroke-width="0.75" opacity="0.95"/>
+  <line x1="20" y1="49" x2="18" y2="62" stroke="#92400e" stroke-width="0.6" opacity="0.5"/>
+  <line x1="24" y1="52" x2="23" y2="64" stroke="#92400e" stroke-width="0.6" opacity="0.5"/>
+  <line x1="28" y1="54" x2="28" y2="65" stroke="#92400e" stroke-width="0.6" opacity="0.5"/>
+  <line x1="33" y1="54" x2="33" y2="65" stroke="#92400e" stroke-width="0.6" opacity="0.5"/>
+  <line x1="38" y1="53" x2="39" y2="64" stroke="#92400e" stroke-width="0.6" opacity="0.5"/>
+  <line x1="43" y1="50" x2="44" y2="61" stroke="#92400e" stroke-width="0.6" opacity="0.5"/>
 
-  <!-- Tail fin -->
-  <path d="M46 22 Q62 32 46 42" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+  <!-- CAUDAL FIN (tail fan) -->
+  <path d="M 49,24 Q 59,18 65,12 Q 62,34 65,56 Q 59,50 49,44 Q 58,34 49,24 Z"
+        fill="url(#caudalGrad)" stroke="#b45309" stroke-width="0.75" opacity="0.95"/>
+  <line x1="51" y1="26" x2="63" y2="13" stroke="#92400e" stroke-width="0.55" opacity="0.45"/>
+  <line x1="52" y1="30" x2="64" y2="24" stroke="#92400e" stroke-width="0.55" opacity="0.45"/>
+  <line x1="52" y1="34" x2="65" y2="34" stroke="#92400e" stroke-width="0.55" opacity="0.45"/>
+  <line x1="52" y1="38" x2="64" y2="44" stroke="#92400e" stroke-width="0.55" opacity="0.45"/>
+  <line x1="51" y1="42" x2="63" y2="55" stroke="#92400e" stroke-width="0.55" opacity="0.45"/>
 
-  <!-- Lateral stripe -->
-  <line x1="14" y1="32" x2="46" y2="32" stroke="white" stroke-width="1.2" opacity="0.35"/>
+  <!-- PELVIC FIN (small filament) -->
+  <path d="M 21,43 Q 14,48 13,54" fill="none" stroke="#b45309" stroke-width="1.2"
+        stroke-linecap="round" opacity="0.6"/>
 
-  <!-- Eye -->
-  <circle cx="21" cy="27" r="3.2" fill="white" opacity="0.95"/>
-  <circle cx="21" cy="27" r="1.6" fill="#b86d00"/>
-  <circle cx="20.2" cy="26.2" r="0.6" fill="white" opacity="0.8"/>
+  <!-- ═══ BODY ═══ -->
+  <ellipse cx="31" cy="34" rx="19" ry="23" fill="url(#bodyGrad)"/>
 
-  <!-- Pectoral fin detail -->
-  <path d="M30 32 Q34 24 44 28" fill="none" stroke="white" stroke-width="1.2" opacity="0.4"/>
+  <!-- 9 VERTICAL DARK BARS (clipped to body) -->
+  <g clip-path="url(#bodyClip)" opacity="0.44">
+    <rect x="12"  y="10" width="2.2" height="48" fill="#3b1300" rx="0.8"/>
+    <rect x="16"  y="10" width="1.9" height="48" fill="#3b1300" rx="0.8"/>
+    <rect x="20"  y="10" width="1.9" height="48" fill="#3b1300" rx="0.8"/>
+    <rect x="24"  y="10" width="1.9" height="48" fill="#3b1300" rx="0.8"/>
+    <rect x="28"  y="10" width="1.9" height="48" fill="#3b1300" rx="0.8"/>
+    <rect x="32"  y="10" width="1.9" height="48" fill="#3b1300" rx="0.8"/>
+    <rect x="36"  y="10" width="1.9" height="48" fill="#3b1300" rx="0.8"/>
+    <rect x="40"  y="10" width="1.9" height="48" fill="#3b1300" rx="0.8"/>
+    <rect x="44"  y="10" width="2.2" height="48" fill="#3b1300" rx="0.8"/>
+  </g>
 
-  <!-- Brand text -->
-  <text x="74" y="26" font-family="'Segoe UI', Arial, sans-serif" font-weight="800" font-size="21" fill="white" letter-spacing="0.3">Jack Wattley</text>
-  <text x="75" y="50" font-family="'Segoe UI', Arial, sans-serif" font-weight="300" font-size="17" fill="rgba(255,220,100,0.95)" letter-spacing="7">DISCUS</text>
+  <!-- TEAL IRIDESCENT WORM-LINES (horizontal wavy, clipped to body) -->
+  <g clip-path="url(#bodyClip)" opacity="0.3">
+    <path d="M 12,20 Q 17,18 22,20 Q 27,22 32,20 Q 37,18 42,20 Q 47,22 50,20" fill="none" stroke="#22d3ee" stroke-width="0.9"/>
+    <path d="M 12,23 Q 17,21 22,23 Q 27,25 32,23 Q 37,21 42,23 Q 47,25 50,23" fill="none" stroke="#22d3ee" stroke-width="0.9"/>
+    <path d="M 12,26 Q 17,24 22,26 Q 27,28 32,26 Q 37,24 42,26 Q 47,28 50,26" fill="none" stroke="#22d3ee" stroke-width="0.9"/>
+    <path d="M 12,29 Q 17,27 22,29 Q 27,31 32,29 Q 37,27 42,29 Q 47,31 50,29" fill="none" stroke="#22d3ee" stroke-width="0.9"/>
+    <path d="M 12,32 Q 17,30 22,32 Q 27,34 32,32 Q 37,30 42,32 Q 47,34 50,32" fill="none" stroke="#22d3ee" stroke-width="0.9"/>
+    <path d="M 12,35 Q 17,33 22,35 Q 27,37 32,35 Q 37,33 42,35 Q 47,37 50,35" fill="none" stroke="#22d3ee" stroke-width="0.9"/>
+    <path d="M 12,38 Q 17,36 22,38 Q 27,40 32,38 Q 37,36 42,38 Q 47,40 50,38" fill="none" stroke="#22d3ee" stroke-width="0.9"/>
+    <path d="M 12,41 Q 17,39 22,41 Q 27,43 32,41 Q 37,39 42,41 Q 47,43 50,41" fill="none" stroke="#22d3ee" stroke-width="0.9"/>
+    <path d="M 12,44 Q 17,42 22,44 Q 27,46 32,44 Q 37,42 42,44 Q 47,46 50,44" fill="none" stroke="#22d3ee" stroke-width="0.9"/>
+    <path d="M 12,47 Q 17,45 22,47 Q 27,49 32,47 Q 37,45 42,47 Q 47,49 50,47" fill="none" stroke="#22d3ee" stroke-width="0.9"/>
+  </g>
+
+  <!-- GILL ARC (operculum) -->
+  <path d="M 18,16 C 13,23 13,45 18,52"
+        fill="none" stroke="#92400e" stroke-width="1.4" opacity="0.45"/>
+
+  <!-- LATERAL LINE -->
+  <path d="M 19,34 Q 31,32 50,34"
+        fill="none" stroke="#92400e" stroke-width="0.6" stroke-dasharray="1.5,2.5" opacity="0.3"/>
+
+  <!-- PECTORAL FIN (fan behind gill) -->
+  <path d="M 19,27 Q 11,33 19,41"
+        fill="#f59e0b" fill-opacity="0.45" stroke="#b45309" stroke-width="0.8"/>
+
+  <!-- ═══ EYE ═══ -->
+  <circle cx="18" cy="30" r="4.8" fill="#1c0900"/>
+  <circle cx="18" cy="30" r="3.8" fill="#7c3405"/>
+  <circle cx="18" cy="30" r="3.2" fill="none" stroke="#f59e0b" stroke-width="0.6" opacity="0.55"/>
+  <circle cx="18" cy="30" r="2.1" fill="#080200"/>
+  <circle cx="16.7" cy="28.7" r="1.1" fill="white" opacity="0.95"/>
+  <circle cx="19.4" cy="31.4" r="0.45" fill="white" opacity="0.5"/>
+
+  <!-- MOUTH -->
+  <path d="M 12,35.5 Q 13.5,33.5 14.5,35.5"
+        fill="none" stroke="#7c3405" stroke-width="1.1" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- ═══ BRAND TEXT ═══ -->
+  <text x="78" y="28"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-weight="800" font-size="22"
+        fill="white" letter-spacing="0.2">Jack Wattley</text>
+  <text x="79" y="52"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-weight="300" font-size="18"
+        fill="rgba(255,220,100,0.95)" letter-spacing="7">DISCUS</text>
 </svg>
