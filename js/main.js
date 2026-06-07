@@ -51,6 +51,35 @@ document.querySelectorAll('.feature-card, .service-card, .team-card').forEach(el
   observer.observe(el);
 });
 
+// Waitlist form (Formspree AJAX submit)
+const waitlistForm = document.getElementById('waitlistForm');
+if (waitlistForm) {
+  waitlistForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = waitlistForm.querySelector('button');
+    const success = document.getElementById('waitlistSuccess');
+    btn.textContent = 'Joining…';
+    btn.disabled = true;
+    try {
+      const res = await fetch(waitlistForm.action, {
+        method: 'POST',
+        body: new FormData(waitlistForm),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        waitlistForm.style.display = 'none';
+        if (success) success.style.display = 'block';
+      } else {
+        btn.textContent = 'Join Waitlist';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Join Waitlist';
+      btn.disabled = false;
+    }
+  });
+}
+
 // Newsletter form
 const newsletterForms = document.querySelectorAll('.footer-newsletter');
 newsletterForms.forEach(nf => {

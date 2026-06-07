@@ -151,6 +151,22 @@
     </div>
   </section>
 
+  <!-- Waitlist -->
+  <section class="waitlist">
+    <div class="waitlist-inner">
+      <div class="waitlist-badge">New Arrivals Waitlist</div>
+      <h2>Be First in Line for New Fish</h2>
+      <p>Our rarest strains sell out fast. Join the waitlist and get notified the moment new discus — Wilds, Breeding Pairs, limited morphs — are available.</p>
+      <!-- Waitlist form powered by Formspree. Sign up free at formspree.io, create a form, and replace YOUR_FORM_ID below -->
+      <form class="waitlist-form" id="waitlistForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email address" />
+        <button type="submit">Join Waitlist</button>
+      </form>
+      <div class="waitlist-note">No spam. Unsubscribe anytime. We only email when new stock arrives.</div>
+      <div class="waitlist-success" id="waitlistSuccess">✅ You're on the list! We'll notify you when new stock arrives.</div>
+    </div>
+  </section>
+
   <!-- CTA Banner -->
   <div class="cta-banner">
     <div class="container">
@@ -209,5 +225,17 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <!-- Tawk.to Live Chat — sign up free at tawk.to, go to Administration > Channels > Chat Widget, copy your Property ID and replace YOUR_PROPERTY_ID below -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/1icu4abcd';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
 </body>
 </html>

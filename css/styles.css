@@ -544,6 +544,108 @@ footer {
   font-size: .83rem;
 }
 
+/* ── Waitlist ── */
+.waitlist {
+  background: linear-gradient(135deg, #0e3a5c 0%, var(--navy) 50%, #0e2a1f 100%);
+  color: var(--white);
+  padding: 96px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.waitlist::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  background: rgba(212,160,23,.08);
+  border-radius: 50%;
+}
+.waitlist::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 240px; height: 240px;
+  background: rgba(26,122,138,.1);
+  border-radius: 50%;
+}
+.waitlist-inner { position: relative; z-index: 1; max-width: 580px; margin: 0 auto; }
+.waitlist-badge {
+  display: inline-block;
+  background: rgba(212,160,23,.2);
+  border: 1px solid rgba(212,160,23,.5);
+  color: var(--gold);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.waitlist h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 12px; }
+.waitlist p  { opacity: .8; margin-bottom: 36px; font-size: 1.05rem; }
+.waitlist-form {
+  display: flex;
+  gap: 0;
+  max-width: 480px;
+  margin: 0 auto 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,.3);
+}
+.waitlist-form input {
+  flex: 1;
+  padding: 16px 20px;
+  border: none;
+  font-size: .95rem;
+  font-family: inherit;
+  outline: none;
+  background: rgba(255,255,255,.95);
+  color: var(--text);
+}
+.waitlist-form input::placeholder { color: #999; }
+.waitlist-form button {
+  padding: 16px 28px;
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  font-weight: 700;
+  font-size: .95rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.waitlist-form button:hover { background: #b8890f; }
+.waitlist-note { font-size: .78rem; opacity: .55; }
+.waitlist-success {
+  display: none;
+  background: rgba(26,122,138,.25);
+  border: 1px solid rgba(26,122,138,.5);
+  color: #7eeeff;
+  padding: 16px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-top: 16px;
+}
+
+/* ── Google Map ── */
+.map-wrap {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-top: 48px;
+  line-height: 0;
+}
+.map-wrap iframe {
+  width: 100%;
+  height: 360px;
+  border: none;
+  display: block;
+}
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .hero-inner, .about-inner, .contact-inner { grid-template-columns: 1fr; }
