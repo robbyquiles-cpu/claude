@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Jack Wattley Discus</title>
+  <meta name="description" content="Contact Jack Wattley Discus — orders, consultations, shipping questions, or just talk discus. We're here to help." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo" aria-label="Jack Wattley Discus Home">
+        <div class="logo-icon">🐟</div>
+        <div class="logo-text">
+          Jack Wattley Discus
+          <span>Est. 1956 · Florida, USA</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>Have a question about an order, a specific variety, or just want to talk discus? We'd love to hear from you.</p>
+    </div>
+  </div>
+
+  <section class="contact">
+    <div class="container">
+      <div class="contact-inner">
+
+        <!-- Contact Info -->
+        <div>
+          <h2 class="section-title" style="font-size:1.7rem;">Get in Touch</h2>
+          <p style="color:var(--muted);margin-top:12px;margin-bottom:32px;">We typically respond within one business day. For urgent live-fish delivery issues, please call us directly.</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <div>
+              <h4>Location</h4>
+              <p>Pompano Beach, Florida, USA</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📞</div>
+            <div>
+              <h4>Phone</h4>
+              <p>(954) 555-0190</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <p>info@jackwattleydiscus.com</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">🕐</div>
+            <div>
+              <h4>Business Hours</h4>
+              <p>Monday – Friday: 9 AM – 5 PM EST<br>Saturday: 10 AM – 2 PM EST</p>
+            </div>
+          </div>
+
+          <div style="margin-top:40px;padding:24px;background:rgba(26,122,138,.08);border-left:4px solid var(--teal);border-radius:var(--radius);">
+            <h4 style="color:var(--navy);margin-bottom:8px;">Visiting the Facility</h4>
+            <p style="font-size:.9rem;color:var(--muted);">We welcome hobbyists to visit by appointment. Contact us to schedule a tour of the breeding facility — a must for any serious discus enthusiast!</p>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <h3 style="font-size:1.3rem;color:var(--navy);margin-bottom:24px;">Send Us a Message</h3>
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" placeholder="John" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <select id="subject" name="subject" required>
+                <option value="" disabled selected>Select a topic…</option>
+                <option value="order">Place an Order</option>
+                <option value="availability">Fish Availability</option>
+                <option value="consultation">Breeding Consultation</option>
+                <option value="shipping">Shipping Question</option>
+                <option value="food">Food & Nutrition</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" placeholder="Tell us what you're looking for, what varieties interest you, your tank size, experience level — any detail helps us assist you better." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+          </form>
+          <div class="form-success">
+            ✅ Thank you! Your message has been sent. We'll be in touch within one business day.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <div style="text-align:center;margin-bottom:56px;">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common Questions</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon-wrap">📦</div>
+          <div>
+            <h3>How are the fish shipped?</h3>
+            <p>Fish are triple-bagged with pure oxygen in insulated foam boxes. All live fish ship next-day air, Monday through Wednesday.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrap">💳</div>
+          <div>
+            <h3>What payment methods do you accept?</h3>
+            <p>We accept PayPal, major credit cards, and Zelle. Payment is required in full before shipment.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrap">🌡️</div>
+          <div>
+            <h3>What water parameters do discus need?</h3>
+            <p>Discus prefer soft, warm water: pH 6.0–7.0, temperature 82–86°F, and very low hardness. We include a care sheet with every order.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrap">🔄</div>
+          <div>
+            <h3>What is your return policy?</h3>
+            <p>Live fish are non-returnable, but we honor our live-arrival guarantee. Contact us within 2 hours of delivery with photos for any DOA claims.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">🐟</div>
+            <div class="logo-text">Jack Wattley Discus<span>Est. 1956 · Florida, USA</span></div>
+          </a>
+          <p>The world's most trusted name in discus fish — delivering champion-quality specimens and expert knowledge since 1956.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Champion Discus Fish</a></li>
+            <li><a href="services.html">Wattley's Discus Formula</a></li>
+            <li><a href="services.html">Breeding Consultation</a></li>
+            <li><a href="services.html">Starter Packages</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p style="font-size:.85rem;margin-bottom:14px;">Subscribe for new arrivals, care tips, and exclusive offers.</p>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="Your email address" aria-label="Email address" />
+            <button type="button">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Jack Wattley Discus. All rights reserved.</span>
+        <span>Pompano Beach, Florida, USA</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
